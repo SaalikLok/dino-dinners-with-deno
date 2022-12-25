@@ -1,11 +1,9 @@
+import { getRandomInt } from "./utils.ts";
+
 const game = {
   score: 0,
   turn: 0,
   marketDinner: [0, 0, 0]
-}
-
-const getRandomInt = (min: number, max :number) => {
-  return Math.floor(Math.random() * (max - min) + min);
 }
 
 const generateMarketDinner = () => {
@@ -24,9 +22,9 @@ const calculateScore = (playerDinner : number[], marketDinner : number[]) => {
 }
 
 const getPlayerDinner = () => {
-  const spiceLevel = prompt("Spice? >>")
-  const saltLevel = prompt("Salt? >>")
-  const sweetLevel = prompt("Sweet? >>")
+  const spiceLevel = prompt("Spice 🌶️ >>")
+  const saltLevel = prompt("Salt 🧂 >>")
+  const sweetLevel = prompt("Sweet 🍨 >>")
 
   return [parseInt(spiceLevel), parseInt(saltLevel), parseInt(sweetLevel)]
 }
@@ -34,11 +32,14 @@ const getPlayerDinner = () => {
 export const playGame = () => {
   generateMarketDinner();
 
+  console.log(`Welcome to the kitchen! Over the next 5 days, you'll try different flavor combinations to get the dinos to absolutely LOVE your dinner.`)
+
   while (game.turn < 5) {
     console.log()
     console.log("---------")
-    console.log(`Turn:  ${game.turn + 1} of 5`)
+    console.log(`Day:  ${game.turn + 1} of 5`)
     console.log(`Earnings: 🪙${game.score}`)
+    console.log("")
 
     calculateScore(getPlayerDinner(), game.marketDinner)
 

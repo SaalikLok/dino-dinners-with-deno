@@ -11,29 +11,20 @@ Whew, am I glad you're here. We've got tons of hungry dinos to feed.`)
  * 
  */
 
-prompt("Wait a second... do I know you? >>")
 
 console.log(`
-Oof. Silly, silly. Introductions are necessary.
-
 I'm %cDonny%c, the Diplodocus 🦕.
 `, "color: green; font-weight: bold", "color: white")
 
-const name = prompt("And your name is? >>")
-
-console.log(`Well, hello there %c${name}!`, "color: yellow; font-weight: bold")
-
 prompt("\n>>")
 
 console.log(`
-On to business.
-
-You're here to help put together dino dinners.
-Based on how close your recipe is to what these picky giants want, you'll be rewarded!`)
+Thanks for helping to put these dino dinners together.
+Based on how close your recipe is to what these picky giants want, you'll earn 🪙!`)
 
 prompt("\n>>")
 
-console.log(`There are 3 distinct attributes to these meals:
+console.log(`There are 3 distinct flavors to these meals:
 
 - Spice 🌶️
 - Salt 🧂
@@ -43,11 +34,11 @@ console.log(`There are 3 distinct attributes to these meals:
 prompt("\n>>")
 
 console.log(`
-You'll need to tweak the amounts of each every turn, to make the dinos happier.
+When we start, the dinos have collectively agreed upon their perfect level of spice, salt, and sweetness.
 
-Don't worry, it's not too difficult. Let's get started.
+You'll need to tweak the amounts of each every turn to make the dinos happy.
 
-%cMWAAOOO!`, "color: green; font-weight: bold")
+Let's get started. %cMWAAOOO!`, "color: green; font-weight: bold")
 
 prompt("\n>>")
 }
