@@ -2,7 +2,8 @@
 
 A command line minigame learning project.
 
-Make flavorful dinners for the dinosaur market and earn as many coins as you can!
+Make flavorful dinners for the dinosaur market and earn as many coins as you
+can!
 
 ### Playing
 
