@@ -20,19 +20,55 @@ const calculateScore = (playerDinner: number[], marketDinner: number[]) => {
   }
 };
 
-const getPlayerDinner = () => {
-  const spiceLevel = prompt("Spice 🌶️ >>");
-  const saltLevel = prompt("Salt 🧂 >>");
-  const sweetLevel = prompt("Sweet 🍨 >>");
+const validatedIngredient = (ingredient: string | null) => {
+  if (ingredient && parseInt(ingredient) > 0 && parseInt(ingredient) <= 10) {
+    return parseInt(ingredient);
+  }
 
-  return [parseInt(spiceLevel), parseInt(saltLevel), parseInt(sweetLevel)];
+  return 0;
+};
+
+const getPlayerDinner = () => {
+  let spiceLevel = 0;
+  let saltLevel = 0;
+  let sweetLevel = 0;
+  let validated = false;
+  // Add error handling for these prompts
+
+  while (!validated) {
+    const spiceInput = prompt("Spice 🌶️ >>");
+    const saltInput = prompt("Salt 🧂 >>");
+    const sweetInput = prompt("Sweet 🍨 >>");
+
+    if (
+      validatedIngredient(spiceInput) && validatedIngredient(saltInput) &&
+      validatedIngredient(sweetInput)
+    ) {
+      spiceLevel = validatedIngredient(spiceInput);
+      saltLevel = validatedIngredient(saltInput);
+      sweetLevel = validatedIngredient(sweetInput);
+      validated = true;
+    } else {
+      console.log(
+        `Oops! Make sure that your spice, salt and sweet levels are numbers between 1 and 10.`,
+      );
+    }
+  }
+
+  return [spiceLevel, saltLevel, sweetLevel];
 };
 
 export const playGame = () => {
   generateMarketDinner();
 
   console.log(
-    `Welcome to the kitchen! Over the next 5 days, you'll try different flavor combinations to get the dinos to absolutely LOVE your dinner.`,
+    `Welcome to the kitchen! Over the next 5 days, you'll try different flavor combinations to get the dinos to absolutely LOVE your dinner.
+    
+    Each day, you'll see the current day and the amount of earnings you have.
+    
+    You'll be prompted to set the spice, salt, and sweet levels of your dino dinner.
+    
+    They can be integers from 1-10`,
   );
 
   while (game.turn < 5) {
